@@ -1,0 +1,6 @@
+@SRA.ApiRest_HostAddress = http://localhost:5122
+
+GET {{SRA.ApiRest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
