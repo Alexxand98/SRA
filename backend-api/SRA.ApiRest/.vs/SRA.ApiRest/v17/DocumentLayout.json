@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DI\\Proyectos\\SRA.ApiRest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra.apirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra.apirest\\models\\entity\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\entity\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra.apirest\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra.apirest\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra.apirest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 400,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA.ApiRest\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReservasController.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA.ApiRest\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T09:44:58.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA.ApiRest\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA.ApiRest\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T09:20:10.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T09:17:26.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\Reserva.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
+              "RelativeToolTip": "Models\\Entity\\Reserva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:51:57.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA.ApiRest\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA.ApiRest\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-28T09:43:17.896Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
