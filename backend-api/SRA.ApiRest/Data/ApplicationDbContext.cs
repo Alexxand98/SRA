@@ -7,6 +7,10 @@ namespace SRA.ApiRest.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Reserva> Reservas => Set<Reserva>();
     }
 }

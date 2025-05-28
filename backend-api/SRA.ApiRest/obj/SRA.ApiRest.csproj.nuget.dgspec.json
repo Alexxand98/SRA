@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DI\\Proyectos\\SRA.ApiRest\\SRA.ApiRest.csproj": {}
+    "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\SRA.ApiRest.csproj": {}
   },
   "projects": {
-    "D:\\DI\\Proyectos\\SRA.ApiRest\\SRA.ApiRest.csproj": {
+    "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\SRA.ApiRest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DI\\Proyectos\\SRA.ApiRest\\SRA.ApiRest.csproj",
+        "projectUniqueName": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\SRA.ApiRest.csproj",
         "projectName": "SRA.ApiRest",
-        "projectPath": "D:\\DI\\Proyectos\\SRA.ApiRest\\SRA.ApiRest.csproj",
+        "projectPath": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\SRA.ApiRest.csproj",
         "packagesPath": "C:\\Users\\denny\\.nuget\\packages\\",
-        "outputPath": "D:\\DI\\Proyectos\\SRA.ApiRest\\obj\\",
+        "outputPath": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\DI\\VisualStudio\\Shared\\NuGetPackages"
@@ -51,19 +51,39 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
