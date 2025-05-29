@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SRA.ApiRest.Models.DTOs;
 using SRA.ApiRest.Repository.IRepository;
@@ -23,6 +24,9 @@ namespace SRA.ApiRest.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ResponseApi>> GetAll()
         {
             try
@@ -49,6 +53,9 @@ namespace SRA.ApiRest.Controllers
         }
 
         [HttpGet("{id:int}", Name = "[controller]_GetById")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ResponseApi>> Get(int id)
         {
             var entity = await _repository.GetAsync(id);
@@ -70,6 +77,9 @@ namespace SRA.ApiRest.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ResponseApi>> Create([FromBody] TCreateDto dto)
         {
             if (!ModelState.IsValid)
@@ -94,6 +104,9 @@ namespace SRA.ApiRest.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ResponseApi>> Update(int id, [FromBody] TDto dto)
         {
             var existing = await _repository.GetAsync(id);
@@ -118,6 +131,9 @@ namespace SRA.ApiRest.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ResponseApi>> Delete(int id)
         {
             var entity = await _repository.GetAsync(id);
