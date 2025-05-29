@@ -11,6 +11,10 @@ namespace SRA.ApiRest.Data
         {
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Reserva> Reservas => Set<Reserva>();
+        public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<Profesor> Profesores { get; set; }
+        public DbSet<FranjaHoraria> FranjasHorarias { get; set; }
+        public DbSet<DiaNoLectivo> DiasNoLectivos { get; set; }
+
     }
 }

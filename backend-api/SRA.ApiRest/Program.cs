@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SRA.ApiRest.AutoMapper;
 using SRA.ApiRest.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,9 @@ builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", build =>
 {
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
+
+builder.Services.AddAutoMapper(typeof(ApplicationMapper));
+
 
 var app = builder.Build();
 
