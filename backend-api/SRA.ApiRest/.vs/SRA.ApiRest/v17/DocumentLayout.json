@@ -3,28 +3,80 @@
   "WorkspaceRootPath": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\entity\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\entity\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\entity\\profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\entity\\profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\entity\\franjahoraria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\entity\\franjahoraria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\entity\\dianolectivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\entity\\dianolectivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\responseapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\responseapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\reservadto\\reservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\reservadto\\reservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\reservadto\\createreservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\reservadto\\createreservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\profesordto\\profesordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\profesordto\\profesordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\profesordto\\createprofesordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\profesordto\\createprofesordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\franjahorariadto\\franjahorariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\franjahorariadto\\franjahorariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\franjahorariadto\\createfranjahorariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\franjahorariadto\\createfranjahorariadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\dianolectivodto\\dianolectivodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\dianolectivodto\\dianolectivodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\models\\dtos\\dianolectivodto\\createdianolectivodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:models\\dtos\\dianolectivodto\\createdianolectivodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|d:\\di\\proyectos\\sra\\backend-api\\sra.apirest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0C9B7FE7-2393-4085-9683-AFD46388549B}|SRA.ApiRest.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +91,248 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-28T12:59:58.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwA8AAAABAAAAAAAAAA==",
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:29:29.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Reserva.cs",
-              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
-              "RelativeDocumentMoniker": "Models\\Entity\\Reserva.cs",
-              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
-              "RelativeToolTip": "Models\\Entity\\Reserva.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T13:00:11.294Z",
+              "WhenOpened": "2025-05-29T00:44:56.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-28T12:57:00.444Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ReservasController.cs",
-              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Controllers\\ReservasController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReservasController.cs",
-              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Controllers\\ReservasController.cs",
-              "RelativeToolTip": "Controllers\\ReservasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:59:47.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:44:41.785Z",
+              "WhenOpened": "2025-05-29T00:44:49.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\Reserva.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Reserva.cs",
+              "RelativeToolTip": "Models\\Entity\\Reserva.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:29.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profesor.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Profesor.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\Profesor.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\Profesor.cs",
+              "RelativeToolTip": "Models\\Entity\\Profesor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:28.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FranjaHoraria.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\FranjaHoraria.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\FranjaHoraria.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\FranjaHoraria.cs",
+              "RelativeToolTip": "Models\\Entity\\FranjaHoraria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:26.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DiaNoLectivo.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\DiaNoLectivo.cs",
+              "RelativeDocumentMoniker": "Models\\Entity\\DiaNoLectivo.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\Entity\\DiaNoLectivo.cs",
+              "RelativeToolTip": "Models\\Entity\\DiaNoLectivo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:24.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ResponseApi.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ResponseApi.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ResponseApi.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ResponseApi.cs",
+              "RelativeToolTip": "Models\\DTOs\\ResponseApi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:20.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReservaDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ReservaDTO\\ReservaDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ReservaDTO\\ReservaDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ReservaDTO\\ReservaDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ReservaDTO\\ReservaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:18.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateReservaDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ReservaDTO\\CreateReservaDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ReservaDTO\\CreateReservaDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ReservaDTO\\CreateReservaDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ReservaDTO\\CreateReservaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:16.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProfesorDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ProfesorDTO\\ProfesorDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ProfesorDTO\\ProfesorDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ProfesorDTO\\ProfesorDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ProfesorDTO\\ProfesorDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:15.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateProfesorDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ProfesorDTO\\CreateProfesorDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ProfesorDTO\\CreateProfesorDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\ProfesorDTO\\CreateProfesorDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ProfesorDTO\\CreateProfesorDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:13.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FranjaHorariaDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\FranjaHorariaDTO\\FranjaHorariaDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\FranjaHorariaDTO\\FranjaHorariaDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\FranjaHorariaDTO\\FranjaHorariaDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\FranjaHorariaDTO\\FranjaHorariaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:11.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreateFranjaHorariaDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\FranjaHorariaDTO\\CreateFranjaHorariaDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\FranjaHorariaDTO\\CreateFranjaHorariaDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\FranjaHorariaDTO\\CreateFranjaHorariaDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\FranjaHorariaDTO\\CreateFranjaHorariaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:10.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DiaNoLectivoDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\DiaNoLectivoDTO\\DiaNoLectivoDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\DiaNoLectivoDTO\\DiaNoLectivoDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\DiaNoLectivoDTO\\DiaNoLectivoDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\DiaNoLectivoDTO\\DiaNoLectivoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:09.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateDiaNoLectivoDTO.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\DiaNoLectivoDTO\\CreateDiaNoLectivoDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\DiaNoLectivoDTO\\CreateDiaNoLectivoDTO.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Models\\DTOs\\DiaNoLectivoDTO\\CreateDiaNoLectivoDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\DiaNoLectivoDTO\\CreateDiaNoLectivoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:06.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:44:02.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApplicationMapper.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\AutoMapper\\ApplicationMapper.cs",
+              "RelativeDocumentMoniker": "AutoMapper\\ApplicationMapper.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\AutoMapper\\ApplicationMapper.cs",
+              "RelativeToolTip": "AutoMapper\\ApplicationMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:43:58.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-29T00:43:56.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReservasController.cs",
+              "ToolTip": "D:\\DI\\Proyectos\\SRA\\backend-api\\SRA.ApiRest\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T00:42:44.63Z",
               "EditorCaption": ""
             }
           ]

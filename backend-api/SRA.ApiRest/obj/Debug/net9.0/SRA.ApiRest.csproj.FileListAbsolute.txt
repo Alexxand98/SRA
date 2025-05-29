@@ -148,7 +148,6 @@ D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\refint\SRA.ApiRest.
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\SRA.ApiRest.pdb
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\SRA.ApiRest.genruntimeconfig.cache
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\ref\SRA.ApiRest.dll
-D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\AutoMapper.dll
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -156,3 +155,4 @@ D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\Microsoft.AspNetCor
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\DI\Proyectos\SRA\backend-api\SRA.ApiRest\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

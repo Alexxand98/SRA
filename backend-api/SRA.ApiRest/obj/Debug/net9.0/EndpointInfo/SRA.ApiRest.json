@@ -131,32 +131,119 @@
   },
   "components": {
     "schemas": {
-      "Reserva": {
+      "FranjaHoraria": {
+        "required": [
+          "horaFin",
+          "horaInicio"
+        ],
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
             "format": "int32"
           },
-          "profesor": {
-            "type": "string",
-            "nullable": true
+          "horaInicio": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
           },
-          "grupo": {
+          "horaFin": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "rango": {
             "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "reservas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reserva"
+            },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Profesor": {
+        "required": [
+          "correo",
+          "nombre"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "correo": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "ultimoAcceso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reservas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reserva"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Reserva": {
+        "required": [
+          "estado",
+          "fecha",
+          "franjaHorariaId",
+          "grupo",
+          "profesorId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
           "fecha": {
             "type": "string",
             "format": "date-time"
           },
-          "franjaHoraria": {
-            "type": "string",
-            "nullable": true
+          "grupo": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
           },
           "estado": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "profesorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "profesor": {
+            "$ref": "#/components/schemas/Profesor"
+          },
+          "franjaHorariaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "franjaHoraria": {
+            "$ref": "#/components/schemas/FranjaHoraria"
           }
         },
         "additionalProperties": false
