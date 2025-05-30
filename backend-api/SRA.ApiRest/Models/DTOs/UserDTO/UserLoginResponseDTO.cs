@@ -1,6 +1,6 @@
 ﻿namespace SRA.ApiRest.Models.DTOs.UserDTO
 {
-    public class UserLoginResponseDto
+    public class UserLoginResponseDTO
     {
         public string Token { get; set; }
         public string Email { get; set; }

@@ -47,6 +47,11 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = false,
         ValidateAudience = false
     };
+})
+.AddGoogle("Google", googleOptions =>
+{
+    googleOptions.ClientId = builder.Configuration["GoogleAuth:ClientId"];
+    googleOptions.ClientSecret = builder.Configuration["GoogleAuth:ClientSecret"];
 });
 
 builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", build =>
@@ -56,7 +61,6 @@ builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", build =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "SRA.ApiRest", Version = "v1" });
