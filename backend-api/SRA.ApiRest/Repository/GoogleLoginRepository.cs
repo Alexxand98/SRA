@@ -10,41 +10,37 @@ using System.Text;
 
 namespace SRA.ApiRest.Repository
 {
-    public class UserRepository : IUserRepository
+    public class GoogleLoginRepository : IGoogleLoginRepository
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly IConfiguration _config;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserRepository(UserManager<AppUser> userManager,
-                               SignInManager<AppUser> signInManager,
-                               IConfiguration config)
+        public GoogleLoginRepository(IConfiguration config, UserManager<AppUser> userManager)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
             _config = config;
+            _userManager = userManager;
         }
 
-        public async Task<UserLoginResponseDTO> Login(UserLoginDTO dto)
+        public async Task<UserLoginResponseDTO?> LoginWithGoogleAsync(GoogleLoginDTO dto)
         {
-            var user = await _userManager.FindByEmailAsync(dto.Email);
-            if (user == null)
-                return null!;
+            GoogleJsonWebSignature.Payload payload;
 
-            var result = await _signInManager.CheckPasswordSignInAsync(user, dto.Password, false);
-            if (!result.Succeeded)
-                return null!;
+            try
+            {
+                var settings = new GoogleJsonWebSignature.ValidationSettings()
+                {
+                    Audience = new[] { _config["GoogleAuth:ClientId"] }
+                };
 
-            return await GenerateTokenResponse(user);
-        }
+                payload = await GoogleJsonWebSignature.ValidateAsync(dto.TokenId, settings);
+            }
+            catch
+            {
+                return null;
+            }
 
-        public async Task<UserLoginResponseDTO> LoginWithGoogleAsync(string tokenId)
-        {
-            var payload = await GoogleJsonWebSignature.ValidateAsync(tokenId);
-
-            // Validar dominio del correo
             if (!payload.Email.EndsWith("@iescomercio.com"))
-                return null!;
+                return null;
 
             var user = await _userManager.FindByEmailAsync(payload.Email);
             if (user == null)
@@ -55,34 +51,28 @@ namespace SRA.ApiRest.Repository
                     UserName = payload.Email,
                     EmailConfirmed = true
                 };
+
                 await _userManager.CreateAsync(user);
                 await _userManager.AddToRoleAsync(user, "Profesor");
             }
 
-            return await GenerateTokenResponse(user);
-        }
-
-        private async Task<UserLoginResponseDTO> GenerateTokenResponse(AppUser user)
-        {
             var roles = await _userManager.GetRolesAsync(user);
+
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
 
             foreach (var role in roles)
-            {
                 claims.Add(new Claim(ClaimTypes.Role, role));
-            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["ApiSettings:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                claims: claims,
                 expires: DateTime.UtcNow.AddDays(7),
+                claims: claims,
                 signingCredentials: creds
             );
 

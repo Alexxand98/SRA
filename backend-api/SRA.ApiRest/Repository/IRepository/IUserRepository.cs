@@ -4,6 +4,7 @@ namespace SRA.ApiRest.Repository.IRepository
 {
     public interface IUserRepository
     {
-        Task<UserLoginResponseDto> Login(UserLoginDto dto);
+        Task<UserLoginResponseDTO> Login(UserLoginDTO dto);
+        Task<UserLoginResponseDTO> LoginWithGoogleAsync(string tokenId); // 👈 Añade esta línea
     }
 }
