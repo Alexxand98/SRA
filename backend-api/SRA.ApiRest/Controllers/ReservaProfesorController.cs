@@ -54,9 +54,8 @@ namespace SRA.ApiRest.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-
             var profesorIdEnDb = await _reservaRepository.ObtenerProfesorIdDesdeAppUserId(userId);
+
             if (profesorIdEnDb == null || profesorIdEnDb.Value != dto.ProfesorId)
             {
                 _response.StatusCode = HttpStatusCode.Forbidden;
@@ -66,6 +65,16 @@ namespace SRA.ApiRest.Controllers
             }
 
             var reserva = _mapper.Map<Reserva>(dto);
+
+            var (esValida, errores) = await _reservaRepository.ValidarReservaAsync(reserva);
+            if (!esValida)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.ErrorMessages.AddRange(errores);
+                return BadRequest(_response);
+            }
+
             await _reservaRepository.CreateAsync(reserva);
 
             var result = _mapper.Map<ReservaDTO>(reserva);

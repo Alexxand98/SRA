@@ -12,5 +12,8 @@ namespace SRA.ApiRest.Models.DTOs.ProfesorDTO
         [EmailAddress(ErrorMessage = "Formato de correo inválido")]
         [MaxLength(50, ErrorMessage = "Máximo 50 caracteres")]
         public string Correo { get; set; }
+
+        [Required(ErrorMessage = "El AppUserId es obligatorio")]
+        public string AppUserId { get; set; }
     }
 }
