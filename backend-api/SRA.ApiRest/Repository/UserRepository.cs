@@ -42,7 +42,6 @@ namespace SRA.ApiRest.Repository
         {
             var payload = await GoogleJsonWebSignature.ValidateAsync(tokenId);
 
-            // Validar dominio del correo
             if (!payload.Email.EndsWith("@iescomercio.com"))
                 return null!;
 

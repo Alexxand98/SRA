@@ -70,6 +70,29 @@ namespace SRA.ApiRest.Repository
             var profesor = await _context.Profesores.FirstOrDefaultAsync(p => p.AppUserId == appUserId);
             return profesor?.Id;
         }
+        public async Task<(bool EsValida, List<string> Errores)> ValidarReservaAsync(Reserva reserva)
+        {
+            var errores = new List<string>();
+
+            bool esNoLectivo = await _context.DiasNoLectivos.AnyAsync(d => d.Fecha.Date == reserva.Fecha.Date);
+            if (esNoLectivo)
+                errores.Add("No se puede reservar en un día no lectivo.");
+
+            bool franjaOcupada = await _context.Reservas.AnyAsync(r =>
+                r.Fecha.Date == reserva.Fecha.Date &&
+                r.FranjaHorariaId == reserva.FranjaHorariaId);
+            if (franjaOcupada)
+                errores.Add("La franja horaria ya está ocupada para esa fecha.");
+
+            bool duplicado = await _context.Reservas.AnyAsync(r =>
+                r.Fecha.Date == reserva.Fecha.Date &&
+                r.FranjaHorariaId == reserva.FranjaHorariaId &&
+                r.ProfesorId == reserva.ProfesorId);
+            if (duplicado)
+                errores.Add("El profesor ya tiene una reserva en esa franja horaria.");
+
+            return (errores.Count == 0, errores);
+        }
 
         public async Task<bool> Save()
         {

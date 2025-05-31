@@ -10,7 +10,7 @@ namespace SRA.ApiRest.Controllers
     [ApiController]
     [Route("api/[controller]")]
     public abstract class BaseController<TEntity, TDto, TCreateDto> : ControllerBase
-        where TEntity : class
+    where TEntity : class
     {
         protected readonly IRepository<TEntity> _repository;
         protected readonly IMapper _mapper;
@@ -80,7 +80,7 @@ namespace SRA.ApiRest.Controllers
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseApi), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ResponseApi>> Create([FromBody] TCreateDto dto)
+        public virtual async Task<ActionResult<ResponseApi>> Create([FromBody] TCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
