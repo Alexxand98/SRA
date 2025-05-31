@@ -14,6 +14,8 @@ namespace SRA.ApiRest.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Reserva>().Property(r => r.Estado).HasConversion<string>();
         }
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Profesor> Profesores { get; set; }
