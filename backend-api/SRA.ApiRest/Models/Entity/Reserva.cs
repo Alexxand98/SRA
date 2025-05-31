@@ -5,6 +5,13 @@ namespace SRA.ApiRest.Models.Entity
 {
     public class Reserva
     {
+        public enum EstadoReserva
+        {
+            Pendiente,
+            Aprobada,
+            Rechazada
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -17,8 +24,7 @@ namespace SRA.ApiRest.Models.Entity
         public string Grupo { get; set; }
 
         [Required]
-        [MaxLength(20)]
-        public string Estado { get; set; } = "Pendiente";
+        public EstadoReserva Estado { get; set; } = EstadoReserva.Pendiente;
 
         //Relaciones
 

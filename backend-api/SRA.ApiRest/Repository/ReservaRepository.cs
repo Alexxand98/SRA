@@ -56,13 +56,26 @@ namespace SRA.ApiRest.Repository
             return await Save();
         }
 
+        public async Task<IEnumerable<Reserva>> GetReservasPorProfesorAsync(string userId)
+        {
+            return await _context.Reservas
+                .Include(r => r.FranjaHoraria)
+                .Include(r => r.Profesor)
+                .Where(r => r.Profesor.AppUserId == userId)
+                .ToListAsync();
+        }
+
+        public async Task<int?> ObtenerProfesorIdDesdeAppUserId(string appUserId)
+        {
+            var profesor = await _context.Profesores.FirstOrDefaultAsync(p => p.AppUserId == appUserId);
+            return profesor?.Id;
+        }
+
         public async Task<bool> Save()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public void ClearCache()
-        {
-        }
+        public void ClearCache() { }
     }
 }

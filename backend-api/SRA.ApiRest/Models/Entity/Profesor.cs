@@ -20,6 +20,12 @@ namespace SRA.ApiRest.Models.Entity
 
         public DateTime UltimoAcceso { get; set; }
 
+        [Required]
+        public string AppUserId { get; set; }
+
+        [ForeignKey("AppUserId")]
+        public AppUser AppUser { get; set; }
+
         public ICollection<Reserva>? Reservas { get; set; }
     }
 }
