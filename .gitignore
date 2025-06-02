@@ -410,5 +410,30 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+# === ANGULAR ===
+/frontend-web/node_modules/
+/frontend-web/dist/
+/frontend-web/.angular/
+/frontend-web/.env
+/frontend-web/.output/
+/frontend-web/.vite/
+
+# === .NET ===
+**/bin/
+**/obj/
+
+# === Visual Studio comunes adicionales ===
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+*.sln.iml
+
+# === Archivos generales temporales ===
+*.log
+*.tmp
+*.env
+.DS_Store
+Thumbs.db
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,dotnetcore
