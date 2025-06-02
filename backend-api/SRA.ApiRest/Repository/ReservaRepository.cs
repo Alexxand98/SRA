@@ -2,6 +2,7 @@
 using SRA.ApiRest.Data;
 using SRA.ApiRest.Models.Entity;
 using SRA.ApiRest.Repository.IRepository;
+using static SRA.ApiRest.Models.Entity.Reserva;
 
 namespace SRA.ApiRest.Repository
 {
@@ -70,6 +71,7 @@ namespace SRA.ApiRest.Repository
             var profesor = await _context.Profesores.FirstOrDefaultAsync(p => p.AppUserId == appUserId);
             return profesor?.Id;
         }
+
         public async Task<(bool EsValida, List<string> Errores)> ValidarReservaAsync(Reserva reserva)
         {
             var errores = new List<string>();
@@ -93,6 +95,28 @@ namespace SRA.ApiRest.Repository
 
             return (errores.Count == 0, errores);
         }
+
+        public async Task<IEnumerable<Reserva>> GetReservasPendientesAsync()
+        {
+            return await _context.Reservas
+                .Include(r => r.Profesor)
+                .Include(r => r.FranjaHoraria)
+                .Where(r => r.Estado == EstadoReserva.Pendiente)
+                .ToListAsync();
+        }
+
+        public async Task<bool> ActualizarEstadoAsync(int id, string nuevoEstado)
+        {
+            var reserva = await _context.Reservas.FindAsync(id);
+            if (reserva == null) return false;
+
+            if (!Enum.TryParse<EstadoReserva>(nuevoEstado, out var estadoEnum))
+                return false;
+
+            reserva.Estado = estadoEnum;
+            return await Save();
+        }
+
 
         public async Task<bool> Save()
         {
