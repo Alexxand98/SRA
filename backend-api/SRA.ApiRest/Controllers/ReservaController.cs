@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SRA.ApiRest.Models.DTOs;
 using SRA.ApiRest.Models.DTOs.ReservaDTO;
 using SRA.ApiRest.Models.Entity;
 using SRA.ApiRest.Repository.IRepository;
+using SRA.ApiRest.Services;
 using System.Net;
 
 namespace SRA.ApiRest.Controllers
@@ -17,16 +19,19 @@ namespace SRA.ApiRest.Controllers
         private readonly IReservaRepository _reservaRepository;
         private readonly IMapper _mapper;
         private readonly ILogger<ReservaController> _logger;
+        private readonly IEmailService _emailService;
 
         public ReservaController(
             IReservaRepository reservaRepository,
             IMapper mapper,
-            ILogger<ReservaController> logger
+            ILogger<ReservaController> logger,
+            IEmailService emailService
         ) : base(reservaRepository, mapper, logger)
         {
             _reservaRepository = reservaRepository;
             _mapper = mapper;
             _logger = logger;
+            _emailService = emailService;
         }
 
         [HttpPost]
@@ -98,8 +103,8 @@ namespace SRA.ApiRest.Controllers
                 });
             }
 
-            var success = await _reservaRepository.ActualizarEstadoAsync(id, dto.Estado);
-            if (!success)
+            var reserva = await _reservaRepository.GetAsync(id);
+            if (reserva == null)
             {
                 return NotFound(new ResponseApi
                 {
@@ -107,6 +112,25 @@ namespace SRA.ApiRest.Controllers
                     IsSuccess = false,
                     ErrorMessages = new() { "Reserva no encontrada" }
                 });
+            }
+
+            var success = await _reservaRepository.ActualizarEstadoAsync(id, dto.Estado);
+            if (!success)
+            {
+                return StatusCode(500, new ResponseApi
+                {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    IsSuccess = false,
+                    ErrorMessages = new() { "Error al actualizar estado de la reserva" }
+                });
+            }
+
+            var email = reserva.Profesor?.AppUser?.Email;
+            if (!string.IsNullOrEmpty(email))
+            {
+                var asunto = $"Reserva {dto.Estado}";
+                var mensaje = $"Tu reserva para el día {reserva.Fecha:dd/MM/yyyy} en la franja {reserva.FranjaHoraria?.HoraInicio:hh\\:mm} - {reserva.FranjaHoraria?.HoraFin:hh\\:mm} ha sido {dto.Estado.ToLower()}.";
+                await _emailService.SendEmailAsync(email, asunto, mensaje);
             }
 
             return Ok(new ResponseApi

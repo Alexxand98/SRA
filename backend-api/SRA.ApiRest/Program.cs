@@ -7,6 +7,7 @@ using SRA.ApiRest.Data;
 using SRA.ApiRest.Models.Entity;
 using SRA.ApiRest.Repository;
 using SRA.ApiRest.Repository.IRepository;
+using SRA.ApiRest.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,9 @@ builder.Services.AddScoped<IProfesorRepository, ProfesorRepository>();
 builder.Services.AddScoped<IFranjaHorariaRepository, FranjaHorariaRepository>();
 builder.Services.AddScoped<IDiaNoLectivoRepository, DiaNoLectivoRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IEmailService, SendGridEmailService>();
+
 builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 
 builder.Logging.ClearProviders();
@@ -100,10 +104,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("CorsPolicy");
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
