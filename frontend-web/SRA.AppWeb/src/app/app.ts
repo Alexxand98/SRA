@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { importProvidersFrom } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { bootstrapApplication } from '@angular/platform-browser';
 
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
-})
-export class App {
-  protected title = 'SRA.AppWeb';
-}
+import { AppComponent } from './app.component';
+import { appConfig } from './app.config';
+import { AuthModule } from './auth/auth.module';
+
+bootstrapApplication(AppComponent, {
+  ...appConfig,
+  providers: [
+    importProvidersFrom(AuthModule),
+    provideHttpClient(),
+    ...appConfig.providers!
+  ]
+});
