@@ -15,6 +15,11 @@ namespace SRA.ApiRest.Data
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
 
+            if (!await roleManager.RoleExistsAsync("Profesor"))
+            {
+                await roleManager.CreateAsync(new IdentityRole("Profesor"));
+            }
+
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
@@ -29,5 +34,6 @@ namespace SRA.ApiRest.Data
                 await userManager.AddToRoleAsync(adminUser, "Admin");
             }
         }
+
     }
 }

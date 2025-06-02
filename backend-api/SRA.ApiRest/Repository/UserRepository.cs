@@ -42,8 +42,8 @@ namespace SRA.ApiRest.Repository
         {
             var payload = await GoogleJsonWebSignature.ValidateAsync(tokenId);
 
-            if (!payload.Email.EndsWith("@iescomercio.com"))
-                return null!;
+            // if (!payload.Email.EndsWith("@iescomercio.com"))
+            //     return null!;
 
             var user = await _userManager.FindByEmailAsync(payload.Email);
             if (user == null)
