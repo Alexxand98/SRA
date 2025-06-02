@@ -69,5 +69,51 @@ namespace SRA.ApiRest.Controllers
                 Result = result
             });
         }
+
+        [HttpGet("pendientes")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetPendientes()
+        {
+            var reservas = await _reservaRepository.GetReservasPendientesAsync();
+            var result = _mapper.Map<IEnumerable<ReservaDTO>>(reservas);
+
+            return Ok(new ResponseApi
+            {
+                StatusCode = HttpStatusCode.OK,
+                Result = result
+            });
+        }
+
+        [HttpPut("{id}/estado")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CambiarEstado(int id, [FromBody] UpdateEstadoReservaDTO dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new ResponseApi
+                {
+                    StatusCode = HttpStatusCode.BadRequest,
+                    IsSuccess = false,
+                    ErrorMessages = ModelState.Values.SelectMany(x => x.Errors).Select(e => e.ErrorMessage).ToList()
+                });
+            }
+
+            var success = await _reservaRepository.ActualizarEstadoAsync(id, dto.Estado);
+            if (!success)
+            {
+                return NotFound(new ResponseApi
+                {
+                    StatusCode = HttpStatusCode.NotFound,
+                    IsSuccess = false,
+                    ErrorMessages = new() { "Reserva no encontrada" }
+                });
+            }
+
+            return Ok(new ResponseApi
+            {
+                StatusCode = HttpStatusCode.OK,
+                Result = $"Reserva {id} actualizada a '{dto.Estado}'"
+            });
+        }
     }
 }
