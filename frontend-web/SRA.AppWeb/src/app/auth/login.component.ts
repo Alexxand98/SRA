@@ -1,51 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/services/auth.service';
+
+declare const google: any;
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="login-container">
-      <h2>Iniciar sesión</h2>
-      <button (click)="login()" class="google-button">
-        Iniciar sesión con Google
-      </button>
+    <h2 style="text-align: center;">Iniciar sesión</h2>
+    <div id="g_id_onload"
+         data-client_id="702675750589-hogrurpogclmrogahgo6aj7bctpvnrrf.apps.googleusercontent.com"
+         data-auto_prompt="false">
     </div>
-  `,
-  styles: [`
-    .login-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 80px;
-    }
-
-    .google-button {
-      background-color: #4285f4;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .google-button:hover {
-      background-color: #3367d6;
-    }
-  `]
+    <div class="g_id_signin" data-type="standard"></div>
+  `
 })
-export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) {
+export class LoginComponent implements AfterViewInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  ngAfterViewInit(): void {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['/calendario']);
+      return;
     }
-  }
 
-  login(): void {
-    this.authService.signInWithGoogle();
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      google.accounts.id.initialize({
+        client_id: '702675750589-hogrurpogclmrogahgo6aj7bctpvnrrf.apps.googleusercontent.com',
+        callback: (response: any) => {
+          this.authService.handleCredentialResponse(response);
+        }
+      });
+
+      google.accounts.id.renderButton(
+        document.querySelector('.g_id_signin'),
+        { theme: 'outline', size: 'large' }
+      );
+    };
+
+    document.head.appendChild(script);
   }
 }
