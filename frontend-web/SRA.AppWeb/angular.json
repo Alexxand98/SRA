@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/app/app.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],

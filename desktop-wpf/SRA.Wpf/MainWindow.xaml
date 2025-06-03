@@ -1,0 +1,11 @@
+﻿<Window x:Class="SRA.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Panel Administrador" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <StackPanel Margin="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
+        <Button Content="Reservas Pendientes" Height="40" Margin="0,0,0,10" Click="AbrirReservas_Click"/>
+        <Button Content="Gestionar Franjas Horarias" Height="40" Margin="0,0,0,10" Click="AbrirFranjas_Click"/>
+        <Button Content="Días No Lectivos" Height="40" Margin="0,0,0,10" Click="AbrirDiasNoLectivos_Click"/>
+        <Button Content="Cerrar sesión" Height="40"/>
+    </StackPanel>
+</Window>
