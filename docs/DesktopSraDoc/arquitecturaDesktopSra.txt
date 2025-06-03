@@ -1,0 +1,149 @@
+================================================================================
+                            DOCUMENTACIÓN TÉCNICA COMPLETA
+                              Aplicación de Escritorio SRA.Wpf
+================================================================================
+
+1. INTRODUCCIÓN GENERAL
+
+SRA.Wpf es una aplicación de escritorio desarrollada con Windows Presentation Foundation (WPF)
+sobre .NET 9. Su función principal es ser cliente administrativo para el sistema de reservas Aula AtecA,
+permitiendo la gestión y aprobación de reservas, franjas horarias y días no lectivos.
+
+Esta aplicación se comunica con un backend RESTful (SRA.ApiRest), que maneja toda la lógica de negocio,
+autenticación y persistencia.
+
+--------------------------------------------------------------------------------
+
+2. TECNOLOGÍAS USADAS
+
+- Lenguaje y plataforma:  
+  - C#  
+  - .NET 9 SDK  
+  - Windows Presentation Foundation (WPF) para UI
+
+- Paquetes NuGet:  
+  - Newtonsoft.Json (serialización JSON)  
+  - Microsoft.Extensions.Http (HttpClient para consumo REST)
+
+- Arquitectura backend (referencia):  
+  - ASP.NET Core 7+ (API REST)  
+  - Entity Framework Core (ORM para base de datos SQL Server)  
+  - JWT (JSON Web Tokens) para autenticación segura  
+  - Swagger para documentación API
+
+- Base de datos:  
+  - SQL Server con esquema específico para gestión de reservas y usuarios
+
+--------------------------------------------------------------------------------
+
+3. VERSIÓN DE DESARROLLO
+
+- Aplicación cliente WPF desarrollada y compilada en .NET 9, compatible con Windows 10/11.
+- Backend API REST corriendo en ASP.NET Core 7+ con seguridad JWT.
+- Cliente usando HttpClient nativo para comunicación segura con tokens.
+- Proyecto configurado con Visual Studio 2022/2023.
+
+--------------------------------------------------------------------------------
+
+4. ARQUITECTURA DEL SISTEMA
+
+4.1 Arquitectura en capas
+
++------------------------------+       +-------------------------------+       +----------------------+
+|       Capa de Presentación    |  <->  |    Capa de Servicios (API)     |  <->  |    API REST Backend   |
+|       (Vistas y lógica UI)    |       |    (ApiService.cs cliente)     |       |  SRA.ApiRest (.NET)   |
++------------------------------+       +-------------------------------+       +----------------------+
+
+- Capa Presentación: Contiene ventanas WPF (.xaml y .xaml.cs) para interfaz y eventos.
+- Capa de Servicios (ApiService): Encapsula comunicación HTTP, token JWT, JSON.
+- API REST: Lógica negocio, seguridad, persistencia, acceso base de datos.
+
+4.2 Componentes principales
+
+- Modelos (DTOs): Representación de datos para transferencia.
+- Vistas (Windows):
+  - LoginWindow
+  - MainWindow
+  - ReservasPendientesWindow
+  - FranjasWindow
+  - DiasNoLectivosWindow
+- Servicio ApiService: Maneja llamadas REST, autenticación, serialización.
+
+--------------------------------------------------------------------------------
+
+5. FUNCIONALIDADES POR FASES
+
+Fase 1 - Autenticación
+
+- Login con credenciales.
+- Obtención y almacenamiento token JWT.
+- Manejo básico de errores en UI.
+
+Fase 2 - Panel Principal
+
+- Navegación a módulos administrativos.
+
+Fase 3 - Reservas Pendientes
+
+- Listado y aprobación/rechazo.
+
+Fase 4 - Franjas Horarias
+
+- Listado, creación, eliminación.
+
+Fase 5 - Días No Lectivos
+
+- Listado, creación, eliminación.
+
+Fase 6 - Diseño UI
+
+- Diseño responsivo, uso Grid y DockPanel.
+
+--------------------------------------------------------------------------------
+
+6. DISEÑO TÉCNICO Y CONSIDERACIONES
+
+6.1 ApiService
+
+- Instancia HttpClient única.
+- Token JWT en header Authorization.
+- Métodos asíncronos para CRUD.
+- Manejo JSON con Newtonsoft.Json.
+- Control de errores.
+
+6.2 Vistas
+
+- XAML para UI, .cs para lógica.
+- Programación asíncrona.
+- Confirmaciones para eliminar.
+
+6.3 Seguridad
+
+- JWT para autenticación.
+- Roles y permisos en backend.
+- Token guardado en memoria.
+
+--------------------------------------------------------------------------------
+
+7. MEJORAS FUTURAS
+
+- Validaciones avanzadas.
+- Temas y estilos UI.
+- Localización.
+- Exportación informes.
+- Integración calendario.
+- Notificaciones email.
+- Logging y auditoría.
+- Multiplataforma MAUI.
+
+--------------------------------------------------------------------------------
+
+8. CONCLUSIONES
+
+SRA.Wpf es un cliente ligero y modular que facilita la gestión administrativa
+del sistema de reservas Aula AtecA. Su arquitectura robusta y separada en capas
+garantiza escalabilidad, seguridad y mantenimiento sencillo.
+
+--------------------------------------------------------------------------------
+
+FIN DEL DOCUMENTO

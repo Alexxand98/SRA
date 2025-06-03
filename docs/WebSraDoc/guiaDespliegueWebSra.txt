@@ -1,0 +1,88 @@
+Guía de Despliegue para Angular SRA.AppWeb
+==========================================
+
+1. Prerrequisitos
+-----------------
+- Tener instalado Node.js (versión LTS recomendada, por ejemplo 18.x o 20.x)
+- Tener instalado Angular CLI (recomendado v15+)
+- Acceso al servidor o entorno donde se alojará la app (ej. servidor web, IIS, Apache, Nginx, Azure, AWS, etc.)
+
+2. Preparar el proyecto para producción
+--------------------------------------
+Paso 1: Instalar dependencias
+  npm install
+
+Paso 2: Compilar la aplicación en modo producción
+  ng build --configuration production
+
+- Esto genera la versión optimizada en la carpeta dist/SRA.AppWeb (o dist/ según configuración).
+- Los archivos están minificados y listos para desplegar.
+
+3. Configurar el servidor web
+-----------------------------
+Opciones comunes:
+
+- Servidor estático (Nginx, Apache, IIS)
+  - Copia el contenido de dist/SRA.AppWeb al directorio raíz público del servidor.
+  - Configura el servidor para servir index.html para todas las rutas (fallback), para que Angular maneje el enrutado.
+
+Ejemplo configuración para Nginx:
+
+  server {
+      listen 80;
+      server_name midominio.com;
+
+      root /var/www/sra-appweb;
+
+      location / {
+          try_files $uri $uri/ /index.html;
+      }
+  }
+
+- Servicios cloud (Azure Static Web Apps, AWS S3 + CloudFront, Firebase Hosting)
+  - Sube la carpeta dist/SRA.AppWeb según procedimiento del servicio.
+
+4. Configuración del entorno
+----------------------------
+- Modifica src/environments/environment.prod.ts para cambiar URLs o variables para producción.
+
+Ejemplo:
+
+  export const environment = {
+    production: true,
+    apiUrl: 'https://api.midominio.com'
+  };
+
+- Usa environment.apiUrl en servicios Angular para la URL base de la API.
+
+5. Configuración angular.json (opcional)
+----------------------------------------
+- Revisa en angular.json que en la configuración production estén habilitadas optimizaciones y minificación.
+
+6. Pruebas post-despliegue
+--------------------------
+- Accede a la URL del despliegue.
+- Prueba login, navegación y consumo API.
+- Verifica que refrescar páginas no da error 404.
+
+7. Consejos adicionales
+-----------------------
+- Usa HTTPS en producción.
+- Configura CORS en la API para permitir orígenes desde el dominio Angular.
+- Asegura que el token JWT se envía correctamente en las peticiones.
+- Considera implementar Angular PWA para mejoras avanzadas.
+
+8. Comandos útiles
+------------------
+| Comando            | Descripción                 |
+|--------------------|-----------------------------|
+| ng serve           | Ejecutar en modo desarrollo  |
+| ng build --prod    | Construir versión producción |
+| npm install        | Instalar dependencias        |
+| ng lint            | Revisar estilo y errores     |
+| ng test            | Ejecutar tests unitarios     |
+| ng e2e             | Ejecutar tests end-to-end    |
+
+---
+
+Fin de la guía.

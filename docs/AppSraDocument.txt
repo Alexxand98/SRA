@@ -1,0 +1,93 @@
+SISTEMA DE RESERVAS DEL AULA ATECA (App SRA)
+DAM2 - Desarrollo de Interfaces
+
+DESCRIPCIÓN GENERAL DEL PROYECTO
+El proyecto "Sistema de Reservas del Aula AtecA" tiene como finalidad reemplazar el sistema actual de reservas del aula en el IES Comercio, que se gestiona manualmente mediante hojas de Excel y correos electrónicos. Este nuevo sistema digital proporcionará una solución integral, moderna y segura para profesores y administradores, facilitando la planificación, reserva y gestión del uso del Aula AtecA.
+
+El sistema se compone de tres aplicaciones interconectadas que interactúan mediante una API REST desarrollada en .NET, con autenticación y control de acceso diferenciados por rol (profesor o administrador).
+
+OBJETIVOS DEL PROYECTO
+- Sustituir el sistema manual de reservas por una solución digital integral.
+- Automatizar el flujo de reservas y aprobación.
+- Garantizar la autenticación y seguridad en todos los accesos a la API.
+- Permitir la planificación eficiente y sin errores en el uso del aula.
+- Facilitar al administrador el control total de las franjas horarias y días no lectivos.
+- Implementar mecanismos de validación para evitar conflictos de reservas.
+- Notificar automáticamente a los profesores sobre el estado de sus reservas.
+- Adaptar el sistema a futuras mejoras y ampliaciones.
+
+COMPONENTES DEL SISTEMA
+
+1. APLICACIÓN WEB (Angular)
+- Desarrollada en Angular 20.
+- Uso exclusivo para profesores del IES Comercio.
+- Inicio de sesión mediante Google Authentication (solo correos @iescomercio.com).
+- Visualización de calendario interactivo con franjas de disponibilidad.
+- Solicitud de reserva indicando fecha, hora y grupo.
+- Validación de duplicados y días no lectivos.
+- Las reservas se crean en estado "Pendiente" y requieren aprobación.
+- Acceso restringido a la API: solo usuarios autenticados pueden interactuar.
+
+2. APLICACIÓN DE ESCRITORIO (WPF)
+- Desarrollada con WPF (.NET 9).
+- Exclusiva para el rol de administrador.
+- Inicio de sesión mediante IdentityUser (no se permite registro, solo login).
+- Visualización de reservas pendientes y aprobadas.
+- Aprobar o rechazar solicitudes.
+- Gestión de franjas horarias (respetando recreos y transiciones).
+- Marcado de días como no lectivos con campo obligatorio "Motivo".
+- Acceso restringido a la API mediante autenticación IdentityUser.
+
+3. API REST (.NET)
+- Desarrollada con ASP.NET Core 9 y Entity Framework (Code First).
+- Gestiona usuarios, reservas, franjas horarias y días no lectivos.
+- Implementación de autenticación mediante JWT.
+- Roles diferenciados: "Profesor" (Google) y "Administrador" (Identity).
+- Protección de endpoints con [Authorize] y políticas específicas.
+- Validación de datos (campos requeridos, fechas, duplicidad, etc.).
+- Integración con SendGrid o SMTP para envío de notificaciones.
+- Seed inicial con usuario administrador.
+
+REQUISITOS FUNCIONALES
+
+ROL PROFESOR
+- Autenticación con Google (correo @iescomercio.com).
+- Visualizar horarios disponibles desde el calendario.
+- Enviar solicitudes de reserva (una por franja).
+- Recibir notificaciones sobre la aprobación/rechazo de reservas.
+- Impedir el acceso a usuarios no autenticados.
+
+ROL ADMINISTRADOR
+- Login mediante IdentityUser.
+- Ver y gestionar solicitudes pendientes.
+- Aprobar o rechazar reservas.
+- Marcar días no lectivos, indicando motivo obligatorio.
+- Editar franjas horarias respetando los recreos.
+- Acceder únicamente si está autenticado y autorizado.
+
+PROCESO DE RESERVA
+1. El profesor inicia sesión en la aplicación web con Google.
+2. Visualiza el calendario y selecciona fecha y franja horaria.
+3. Envía la solicitud de reserva, que se guarda como "Pendiente".
+4. El administrador inicia sesión en WPF y revisa las reservas.
+5. Aprueba o rechaza la solicitud.
+6. Se envía una notificación automática al profesor (correo).
+7. Las reservas aprobadas se muestran en el calendario como confirmadas.
+
+TECNOLOGÍAS UTILIZADAS
+- Frontend Web: Angular 20 (con Standalone Components)
+- Escritorio: WPF .NET 9
+- Backend/API: ASP.NET Core 9
+- ORM: Entity Framework Core (Code First + Migrations)
+- Seguridad: JWT, Google Authentication, IdentityUser
+- Base de Datos: SQL Server
+- Notificaciones: SendGrid o SMTP
+- Control de acceso: Claims y Roles
+- Herramientas de desarrollo: Visual Studio, Visual Studio Code
+- Sistema de control de versiones: Git y GitHub
+
+NOTAS ADICIONALES
+- La validación de contraseñas se deja para una fase de extensión opcional.
+- Se evitarán conflictos mediante validaciones en la API (reservas duplicadas, días no lectivos, validación de datos).
+- El sistema se diseñó para ser escalable y modular.
+- Está previsto el desarrollo futuro de una versión móvil.
