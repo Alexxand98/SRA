@@ -1,0 +1,85 @@
+
+GUÍA COMPLETA DE DESPLIEGUE DE LA API SRA (Sistema de Reservas del Aula AtecA)
+
+REQUISITOS PREVIOS
+- .NET SDK 8.0 o superior.
+- SQL Server (puede usarse con Docker).
+- Visual Studio 2022 o VS Code con soporte C#.
+- Cuenta de SendGrid (opcional).
+- Claves de autenticación de Google desde Google Cloud Console.
+
+ESTRUCTURA DE PROYECTO
+SRA.ApiRest/
+├── AutoMapper/
+├── Attributes/
+├── Controllers/
+│   ├── ReservaController.cs
+│   ├── ReservaProfesorController.cs
+│   ├── UserController.cs
+├── Data/
+│   └── ApplicationDbContext.cs
+│   └── DbInitializer.cs
+├── Models/
+│   ├── DTOs/
+│   └── Entity/
+├── Repository/
+│   ├── IRepository/
+│   └── Repositories concretos
+├── Services/
+│   └── SendGridEmailService.cs
+├── Program.cs
+├── appsettings.json
+
+CONFIGURACIÓN DE appsettings.json
+{
+  "ConnectionStrings": {
+    "SqlConnection": "Server=localhost,1433;Database=SRADB;User Id=AppUserLogin;Password=TU_PASSWORD;TrustServerCertificate=true;"
+  },
+  "ApiSettings": {
+    "SecretKey": "clave_segura_para_jwt"
+  },
+  "GoogleAuth": {
+    "ClientId": "tu-client-id",
+    "ClientSecret": "tu-client-secret"
+  },
+  "SendGridSettings": {
+    "ApiKey": "tu-api-key-de-sendgrid",
+    "FromEmail": "notificaciones@iescomercio.com",
+    "FromName": "Aula AtecA"
+  }
+}
+
+MIGRACIONES Y BASE DE DATOS
+- Aplica migraciones con: dotnet ef database update
+- Se ejecuta DbInitializer para crear roles y admin inicial.
+
+EJECUCIÓN LOCAL
+- Ejecutar con: dotnet run
+- Swagger: https://localhost:7001/swagger
+
+AUTENTICACIÓN
+- JWT vía correo y contraseña (admin)
+- JWT vía Google (profesor)
+- Header: Authorization: Bearer eyJhbGci...
+
+NOTIFICACIONES
+- Mediante SendGridEmailService
+- Configurar dominio autorizado en SendGrid
+
+PRUEBAS EN SWAGGER/POSTMAN
+- POST /api/User/login
+- POST /api/User/google
+- POST /api/ReservaProfesor
+- PUT /api/Reserva/{id}/estado
+
+DESPLIEGUE EN PRODUCCIÓN
+- dotnet publish -c Release -o ./publish
+- Configurar appsettings.Production.json
+- IIS / Azure / Docker (opcionalmente Nginx)
+
+MEJORAS FUTURAS
+- Redis cache
+- FluentValidation
+- Serilog logs
+- Dominio propio SendGrid
+- Auditoría de eventos críticos

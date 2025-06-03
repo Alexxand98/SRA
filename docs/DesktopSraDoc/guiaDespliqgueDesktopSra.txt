@@ -1,0 +1,152 @@
+
+GUÍA DE DESPLIEGUE
+                               Proyecto SRA (WPF + API)
+================================================================================
+
+1. INTRODUCCIÓN
+
+Esta guía detalla el procedimiento para desplegar el sistema completo SRA,
+formado por la aplicación cliente de escritorio WPF (SRA.Wpf) y la API REST backend (SRA.ApiRest).
+Se cubren aspectos desde la preparación del entorno, configuración, publicación,
+hasta recomendaciones de seguridad y mantenimiento.
+
+--------------------------------------------------------------------------------
+
+2. REQUISITOS PREVIOS
+
+2.1 Hardware y Software
+
+- Servidor Windows 10/11 o Windows Server 2016+ para hosting de la API REST.
+- Máquina Windows compatible para ejecución de la app WPF cliente.
+- Instalación de .NET 9 Runtime en servidor y cliente.
+- SQL Server 2019 o superior para base de datos (puede ser instancia local o remota).
+- Visual Studio 2022/2023 para compilación y pruebas.
+
+2.2 Accesos y permisos
+
+- Usuario con permisos administrativos para instalar software y configurar servicios.
+- Acceso de red entre cliente y servidor donde está la API.
+- Firewall configurado para permitir tráfico HTTP/HTTPS en puertos usados.
+
+--------------------------------------------------------------------------------
+
+3. DESPLIEGUE DE LA API REST (SRA.ApiRest)
+
+3.1 Preparación
+
+- Clonar el repositorio API REST.
+- Configurar cadena de conexión en `appsettings.json` o `appsettings.Production.json`:
+  {
+    "ConnectionStrings": {
+      "SqlConnection": "Server=IP_SERVIDOR;Database=SRADB;User Id=usuario;Password=contraseña;TrustServerCertificate=true;"
+    }
+  }
+
+Configurar secretos y claves:
+
+- ApiSettings:SecretKey para JWT (clave robusta, larga y segura).
+- GoogleAuth si usas autenticación Google.
+- SendGridSettings para notificaciones por correo (opcional).
+
+3.2 Publicación
+
+Desde Visual Studio, publicar el proyecto para producción:
+
+- Seleccionar Release.
+- Target Framework: net7.0 o net9.0 (según versión).
+- Configurar carpeta de publicación (por ejemplo, publish).
+- Opcional: publicar como contenedor Docker si prefieres contenerización.
+
+3.3 Configuración IIS (si aplica)
+
+- Crear sitio web en IIS apuntando a la carpeta publicada.
+- Configurar bindings HTTP/HTTPS.
+- Asignar cuenta de aplicación con permisos adecuados.
+- Configurar Application Pool con .NET CLR versión correcta.
+- Habilitar permisos para que IIS acceda a base de datos y recursos.
+
+3.4 Configuración SSL
+
+- Usar certificados válidos para HTTPS.
+- Configurar API para forzar HTTPS.
+
+3.5 Inicialización de base de datos
+
+- Ejecutar migraciones Entity Framework:
+  dotnet ef database update
+  O usar scripts SQL generados.
+
+- Verificar que la base contiene las tablas y datos iniciales (e.g., rol Admin, usuario admin@sra.com).
+
+3.6 Comprobar API
+
+- Acceder a Swagger UI (por ejemplo, https://tu-servidor/swagger) para probar endpoints.
+- Verificar respuesta correcta y seguridad.
+
+--------------------------------------------------------------------------------
+
+4. DESPLIEGUE DE LA APLICACIÓN DE ESCRITORIO (SRA.Wpf)
+
+4.1 Compilación y publicación
+
+- Desde Visual Studio, compilar en Release para .NET 9.
+- Publicar como carpeta para distribución:
+  En Visual Studio: Publicar -> Carpeta -> Seleccionar destino.
+- Opcional: crear instalador con herramientas como Inno Setup, WiX o ClickOnce.
+- Incluir todos los archivos dependientes y configuraciones.
+
+4.2 Instalación en cliente
+
+- Copiar carpeta publicada a máquina cliente.
+- Asegurar que .NET 9 Runtime está instalado en cliente.
+- Ejecutar el archivo SRA.Wpf.exe directamente o mediante acceso directo.
+
+4.3 Configuración inicial
+
+- La app cliente está configurada para apuntar por defecto a https://localhost:7001.
+- Modificar ApiService si la API está en otro host/puerto.
+- El primer login debe ser con usuario admin (admin@sra.com / Admin123*).
+
+4.4 Comunicación y Firewall
+
+- Asegurar que el cliente puede comunicarse con el servidor API.
+- Configurar firewall para permitir tráfico.
+- Revisar certificados SSL en caso de HTTPS para evitar errores.
+
+--------------------------------------------------------------------------------
+
+5. SEGURIDAD Y MANTENIMIENTO
+
+5.1 Seguridad
+
+- Mantener el secreto JWT seguro y cambiar periódicamente.
+- Revisar roles y permisos en backend.
+- Usar HTTPS en producción obligatoriamente.
+- Revisar logs y auditar accesos.
+
+5.2 Mantenimiento
+
+- Actualizar API y cliente según nuevas versiones.
+- Backup regular de base de datos.
+- Monitorear estado del servidor y uso de recursos.
+
+--------------------------------------------------------------------------------
+
+6. RECOMENDACIONES
+
+- Usar entorno staging para pruebas antes de producción.
+- Documentar y versionar API y cliente.
+- Implementar pruebas automatizadas.
+- Capacitar usuarios y administradores.
+
+--------------------------------------------------------------------------------
+
+7. RESUMEN PASOS DESPLIEGUE
+
+- Preparar servidor (instalar SQL Server, .NET Runtime, IIS).
+- Configurar base de datos y permisos.
+- Publicar y configurar API REST.
+- Configurar SSL y firewall.
+- Compilar y distribuir aplicación WPF.
+- Probar conexión y funcionalidades.
+- Capacitar usuarios.

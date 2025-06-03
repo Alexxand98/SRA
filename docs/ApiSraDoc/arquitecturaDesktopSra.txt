@@ -1,0 +1,89 @@
+INFORME DE ARQUITECTURA Y DISEÑO - API SRA (Sistema de Reservas del Aula AtecA)
+-------------------------------------------------------------------------------
+
+1. OBJETIVO DEL PROYECTO
+------------------------
+El objetivo principal de la API REST es servir de backend para un sistema de reservas de un aula tecnológica (Aula AtecA) en un centro educativo. La solución permite a profesores realizar reservas y a un administrador gestionar, validar y controlar la disponibilidad de dichas reservas.
+
+La API debe permitir:
+- Autenticación de usuarios (profesores con Google y administrador con IdentityUser)
+- Gestión de reservas por franjas horarias
+- Validaciones lógicas de reservas (franjas duplicadas, días no lectivos, etc.)
+- Aprobación o rechazo de reservas
+- Posible envío de notificaciones por correo
+- Interacción con aplicaciones frontend (Angular) y escritorio (WPF)
+
+2. ESTRUCTURA DE CARPETAS
+--------------------------
+- Controllers/
+  - ReservaController.cs (admin)
+  - ReservaProfesorController.cs (profesor)
+- Models/
+  - Entity/: Clases de dominio
+  - DTOs/: Clases de transferencia de datos (ReservaDTO, CreateReservaDTO, etc.)
+- Repository/
+  - Interfaces (IRepository, IReservaRepository, etc.)
+  - Implementaciones (ReservaRepository, UserRepository, etc.)
+- Data/
+  - ApplicationDbContext.cs
+  - DbInitializer.cs
+- AutoMapper/
+  - ApplicationMapper.cs
+- Services/
+  - IEmailService.cs
+  - SendGridEmailService.cs
+- Program.cs y appsettings.json
+
+3. PRINCIPALES CLASES Y FUNCIONALIDADES
+----------------------------------------
+- Reserva (Entity): Representa una reserva con fecha, grupo, profesor, franja horaria y estado (enum).
+- CreateReservaDTO / ReservaDTO: DTOs de entrada y salida. El DTO de salida hereda del de entrada.
+- ReservaRepository: Repositorio con lógica personalizada como validación de reservas y filtro por usuario.
+- ReservaController: Controlador para el rol admin (GET/POST/PUT reservas y cambios de estado).
+- ReservaProfesorController: Controlador específico para profesores autenticados. Solo pueden gestionar sus propias reservas.
+- ApplicationDbContext: Define los DbSet y las conversiones necesarias para EF Core.
+- UserRepository: Lógica para login tradicional y con Google.
+- IEmailService: Servicio para notificación opcional por correo mediante SendGrid.
+- SeedAdminAsync(): Se encarga de crear el usuario admin y roles.
+
+4. HERENCIA Y DISEÑO
+---------------------
+- Los DTOs siguen el patrón de herencia Create -> Lectura (ReservaDTO : CreateReservaDTO)
+- Los controladores heredan del BaseController<TEntity, TDto, TCreateDto> cuando corresponde (solo admin).
+- Se utiliza el patrón Repository con inyección de dependencias.
+- AutoMapper centralizado en ApplicationMapper.cs.
+- Se sigue separación de responsabilidades SOLID.
+
+5. SEGURIDAD Y AUTENTICACIÓN
+-----------------------------
+- Autenticación con JWT (Bearer) para usuarios locales y Google Auth para profesores.
+- Roles definidos: Admin y Profesor.
+- Endpoints protegidos con `[Authorize(Roles = "...")]`.
+- Restricción por dominio opcional `@iescomercio.com` incluida pero desactivada en fase actual.
+
+6. FUNCIONALIDADES COMPLETAS
+-----------------------------
+✓ Login tradicional (admin)
+✓ Login con Google (profesor)
+✓ Gestión de reservas (profesor y admin)
+✓ Validaciones lógicas de reservas
+✓ Aprobación / Rechazo de reservas
+✓ Protección por roles
+✓ Configuración de franja horaria y días no lectivos
+✓ Soporte a notificaciones (opcional)
+✓ Swagger habilitado para pruebas
+
+7. VERSIONES Y TECNOLOGÍAS
+---------------------------
+- .NET 9 / ASP.NET Core Web API
+- Entity Framework Core 9
+- SQL Server
+- AutoMapper
+- Identity + Roles
+- SendGrid API (configurado)
+- Swagger UI
+
+8. POSIBLES MEJORAS FUTURAS
+----------------------------
+- Añadir caché real en memoria o distribuida para mejorar rendimiento
+- Registrar fecha de última actividad del usuario

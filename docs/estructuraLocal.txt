@@ -1,0 +1,52 @@
+
+# Proyecto SRA
+
+## 1. Crear estructura local del proyecto
+
+```powershell
+mkdir SRA
+cd SRA
+git init
+mkdir backend-api
+mkdir frontend-web
+mkdir desktop-wpf
+mkdir database
+mkdir docs
+echo "# Sistema de Reservas del Aula AtecA (SRA)" > README.md
+```
+
+## 2. Configurar Git
+
+```powershell
+git config --global user.name "Tu Nombre"
+git config --global user.email "tucorreo@ejemplo.com"
+```
+
+## 3. Crear repositorio en GitHub
+
+- Crear repositorio vacío llamado `SRA` en GitHub (sin README).
+- Copiar la URL del repositorio (por ejemplo: https://github.com/usuario/SRA.git).
+
+## 4. Enlazar proyecto local a GitHub
+
+```powershell
+git remote add origin https://github.com/usuario/SRA.git
+```
+
+(Si ya existía y quieres reemplazarlo: `git remote remove origin`)
+
+## 5. Primer commit
+
+```powershell
+echo "# Proyecto SRA" > README.md
+git add .
+git commit -m "Estructura inicial del proyecto SRA"
+git branch -M main
+git push -u origin main
+```
+
+## 6. Confirmación
+
+- Verificar en GitHub que se ha subido correctamente el commit inicial.
+- El repositorio remoto queda enlazado con el local y listo para trabajar.
+

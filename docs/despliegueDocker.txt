@@ -1,0 +1,87 @@
+# Despliegue de SQL Server con Docker para el proyecto SRA (Sistema de Reservas del Aula AtecA)
+
+Este documento describe los pasos necesarios para levantar un contenedor Docker con SQL Server 2022, crear un usuario específico con los permisos adecuados para la API, y preparar la base de datos para que la API pueda operar correctamente. Es una parte fundamental del backend del sistema.
+
+---
+
+🔸 1. Crear el contenedor de SQL Server
+
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=wnD/LbJq?X39t,}-628%)' -e "MSSQL_PID=Developer" \
+  -p 1433:1433 \
+  --name SQL_Server_DI \
+  -v SQL_Server_Volume:/var/opt/mssql \
+  -d mcr.microsoft.com/mssql/server:2022-latest
+
+📌 Explicación:
+- `-e 'ACCEPT_EULA=Y'`: Acepta la licencia de uso de SQL Server.
+- `-e 'MSSQL_SA_PASSWORD=...'`: Establece la contraseña del usuario `sa` (administrador).
+- `-e 'MSSQL_PID=Developer'`: Usa la edición gratuita para desarrollo.
+- `-p 1433:1433`: Expone el puerto estándar de SQL Server.
+- `--name SQL_Server_DI`: Nombra el contenedor como `SQL_Server_DI`.
+- `-v SQL_Server_Volume:/var/opt/mssql`: Persistencia de datos en un volumen de Docker.
+- `-d mcr.microsoft.com/mssql/server:2022-latest`: Imagen oficial de SQL Server 2022.
+
+✔️ Esto proporciona una base de datos persistente y accesible localmente para desarrollo y pruebas de la API del proyecto SRA.
+
+---
+
+🔸 2. Crear un login y usuario para la API
+
+-- Crear login en el servidor
+CREATE LOGIN AppUserLogin WITH PASSWORD = 'e.d_fwm2()~37hz?+LBT4V';
+
+-- Crear usuario a nivel de base de datos
+CREATE USER AppUser FOR LOGIN AppUserLogin;
+
+✔️ Así evitamos usar el usuario `sa`, lo que mejora la seguridad. La API se conectará con `AppUser`, que tendrá solo los permisos necesarios.
+
+---
+
+🔸 3. Crear base de datos y asociar usuario
+
+CREATE DATABASE Basic;
+USE Basic;
+
+CREATE USER AppUser FOR LOGIN AppUserLogin;
+
+✔️ Creamos la base de datos `Basic`, que usará la API como origen de datos. Asociamos de nuevo el usuario `AppUser` en este contexto.
+
+---
+
+🔸 4. Otorgar permisos adecuados al usuario
+
+-- Permisos CRUD
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO AppUser;
+
+-- O bien usando roles estándar:
+EXEC sp_addrolemember 'db_datareader', 'AppUser';
+EXEC sp_addrolemember 'db_datawriter', 'AppUser';
+
+✔️ Se otorgan los permisos para que `AppUser` pueda leer y modificar los datos, pero sin control total como `sa`.
+
+---
+
+🔸 5. Permisos adicionales para migraciones y ejecución
+
+-- Permisos para EF Core
+GRANT ALTER ON SCHEMA::dbo TO AppUser;
+GRANT REFERENCES ON SCHEMA::dbo TO AppUser;
+GRANT CREATE TABLE TO AppUser;
+GRANT CREATE PROCEDURE TO AppUser;
+GRANT CREATE VIEW TO AppUser;
+GRANT EXECUTE ON SCHEMA::dbo TO AppUser;
+
+✔️ Estos permisos permiten que Entity Framework Core pueda crear, modificar y ejecutar estructuras necesarias durante el desarrollo y despliegue del sistema (tablas, procedimientos, vistas...).
+
+---
+
+📌 ¿Por qué usamos este sistema?
+
+El proyecto **SRA** requiere una base de datos robusta y segura, con acceso controlado desde la API. Esta configuración:
+
+- Separa el acceso del administrador (`sa`) del acceso de la aplicación (`AppUser`).
+- Permite que EF Core cree la estructura de la base de datos mediante `Code First`.
+- Proporciona un entorno fácilmente replicable y portable usando Docker.
+- Cumple con buenas prácticas de seguridad al no usar el superusuario en producción/desarrollo.
+
+Este despliegue sirve como base para conectar correctamente la API `.NET` del sistema de reservas del Aula AtecA, asegurando que pueda autenticar, gestionar reservas, franjas horarias y días no lectivos de forma segura y eficiente.

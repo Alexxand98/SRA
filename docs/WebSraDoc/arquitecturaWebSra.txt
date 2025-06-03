@@ -1,0 +1,165 @@
+
+ARQUITECTURA Y DISEÑO DEL PROYECTO ANGULAR: SRA.AppWeb
+
+========================================================
+
+1. DESCRIPCIÓN GENERAL
+-----------------------
+SRA.AppWeb es la aplicación frontend para profesores del Sistema de Reservas del Aula AtecA.
+Desarrollada con Angular 20+ y TypeScript, usando standalone components para modularidad y rendimiento.
+Se conecta con la API REST del backend para gestionar autenticación, reservas y datos de profesores.
+Autenticación basada en Google Identity Services (GSI) con token JWT.
+
+2. TECNOLOGÍAS
+--------------
+- Angular 20+ con Standalone Components
+- TypeScript 5.0+
+- RxJS para programación reactiva
+- Angular Router con guards
+- Angular HttpClient con interceptors
+- Google Identity Services (GSI)
+- jwt-decode para decodificación de JWT
+
+3. ESTRUCTURA DE CARPETAS
+--------------------------
+src/
+└── app/
+    ├── auth/
+    │   └── login.component.ts
+    ├── core/
+    │   ├── services/
+    │   │   ├── auth.service.ts
+    │   │   ├── reserva.service.ts
+    │   │   └── profesor.service.ts
+    │   ├── models/
+    │   │   ├── create-reserva.dto.ts
+    │   │   ├── reserva.dto.ts
+    │   │   └── profesor.dto.ts
+    │   ├── guards/
+    │   │   └── auth.guard.ts
+    │   └── interceptors/
+    │       └── token.interceptor.ts
+    ├── pages/
+    │   └── calendario.component.ts
+    ├── app.routes.ts
+    ├── app.component.ts
+    └── main.ts
+
+4. DESCRIPCIÓN DE CLASES Y SERVICIOS
+------------------------------------
+DTOs:
+- CreateReservaDTO: fecha, grupo, profesorId, franjaHorariaId
+- ReservaDTO: extiende CreateReservaDTO, añade id y estado
+- ProfesorDTO: id, ultimoAcceso, appUserId, nombre, correo
+
+Servicios:
+- AuthService: login Google, guardar token, verificar sesión, logout
+- ReservaService: obtener y crear reservas del profesor autenticado
+- ProfesorService: obtener lista de profesores
+
+Guards e Interceptors:
+- auth.guard.ts: protege rutas si no hay token válido
+- token.interceptor.ts: añade token JWT a cada petición HTTP
+
+Componentes:
+- login.component.ts: login con GSI y uso de AuthService
+- calendario.component.ts: carga reservas, profesores y permite crear reservas
+
+5. FLUJO DE AUTENTICACIÓN
+--------------------------
+1. Usuario entra a /login y hace login con GSI.
+2. Se obtiene tokenId (credential).
+3. AuthService envía tokenId a /api/User/google-login.
+4. API responde con JWT.
+5. AuthService guarda JWT y datos usuario.
+6. Usuario accede a /calendario protegido con AuthGuard.
+7. Interceptor añade JWT a peticiones API.
+8. API valida JWT y responde según permisos.
+
+6. FASES DE DESARROLLO
+-----------------------
+
+FASE 1: CONFIGURACIÓN BASE Y LOGIN BÁSICO
+Objetivo: Preparar entorno Angular y montar pantalla login.
+Funciones:
+- Inicializar proyecto Angular con standalone components.
+- Crear login.component.ts con formulario básico.
+- Configurar rutas en app.routes.ts con /login.
+- Crear AuthService básico con almacenamiento token.
+- Mostrar pantalla login sin autenticación real.
+
+FASE 2: INTEGRACIÓN GOOGLE IDENTITY SERVICES Y JWT
+Objetivo: Implementar login real y autenticación con JWT.
+Funciones:
+- Integrar GSI en login.component.ts.
+- Obtener tokenId desde Google.
+- Enviar tokenId a API y recibir JWT.
+- Guardar JWT y datos en localStorage.
+- Método isLoggedIn() en AuthService.
+- Configurar token.interceptor.ts.
+- Crear auth.guard.ts para proteger rutas.
+
+FASE 3: SERVICIOS PARA PROFESORES Y RESERVAS
+Objetivo: Consumir API desde frontend.
+Funciones:
+- Crear profesor.service.ts para obtener profesores.
+- Crear reserva.service.ts para manejar reservas.
+- Definir DTOs: profesor.dto.ts, create-reserva.dto.ts, reserva.dto.ts.
+- Manejar respuestas API con RxJS.
+
+FASE 4: CALENDARIO DE RESERVAS
+Objetivo: Crear vista principal y funcionalidades de reserva.
+Funciones:
+- Crear calendario.component.ts.
+- Mostrar reservas y formulario de creación.
+- Cargar profesores y seleccionar autenticado.
+- Crear reservas con validaciones.
+- Mostrar mensajes de éxito/error.
+
+FASE 5: MANEJO DE ERRORES Y UX
+Objetivo: Mejorar experiencia y robustez.
+Funciones:
+- Alertas amigables para errores.
+- Validaciones frontend antes de enviar.
+- Indicadores de carga visuales.
+- Limpieza de token y logout.
+
+FASE 6: PRODUCCIÓN Y OPTIMIZACIÓN
+Objetivo: Ajustar app para despliegue.
+Funciones:
+- Build para producción.
+- Revisar configuración CORS y seguridad API.
+- Validar expiración/refresco de token.
+- Optimizar tamaño y rendimiento.
+- Documentación final.
+
+RESUMEN DE FASES
+-----------------
+Fase | Descripción                             | Clases Clave
+-------------------------------------------------------------
+1    | Setup base + login básico               | login.component.ts, app.routes.ts, auth.service.ts
+2    | Login Google + JWT                      | login.component.ts, auth.service.ts, token.interceptor.ts, auth.guard.ts
+3    | Servicios profesores y reservas         | profesor.service.ts, reserva.service.ts, modelos DTOs
+4    | Calendario y reservas                   | calendario.component.ts
+5    | Manejo de errores + mejoras UX          | calendario.component.ts, alertas, validaciones
+6    | Producción y optimización               | angular.json, main.ts, configuración final
+
+7. EXTENSIONES Y LIBRERÍAS RECOMENDADAS
+----------------------------------------
+- Angular Language Service
+- Prettier
+- ESLint
+- jwt-decode
+- Angular HttpClient
+- RxJS
+
+8. BUENAS PRÁCTICAS
+--------------------
+- camelCase en propiedades DTO
+- Persistencia de token y usuario en localStorage
+- Validación frontend rigurosa
+- Manejo global de errores
+- Guards para rutas protegidas
+- Estructura modular y escalable
+
+========================================================

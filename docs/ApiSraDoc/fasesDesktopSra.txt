@@ -1,0 +1,51 @@
+DISEÑO DE FASES - API SRA
+--------------------------
+
+Fase 1: Base del proyecto
+- Configuración de estructura de carpetas
+- Creación de entidades principales (Reserva, Profesor, FranjaHoraria, AppUser)
+- Creación de ApplicationDbContext y migraciones iniciales
+
+Fase 2: Autenticación y roles
+- Implementación de Identity con AppUser
+- Creación de UserRepository y login tradicional
+- Semilla de administrador por defecto
+
+Fase 3: Login con Google
+- Configuración OAuth Google
+- Validación de tokenId
+- Creación automática de usuarios con rol "Profesor"
+
+Fase 4: DTOs y AutoMapper
+- Creación de DTOs para Reserva
+- Mapeo con AutoMapper
+- Patrón lectura/herencia: ReservaDTO : CreateReservaDTO
+
+Fase 5: Repositorios
+- Creación de interfaces y clases de repositorio
+- Separación por entidad
+- Lógica específica como ValidarReservaAsync
+
+Fase 6: Controladores base y personalizados
+- BaseController<T> para reutilizar lógica CRUD
+- ReservaController para Admin
+- Métodos personalizados: GetPendientes, CambiarEstado
+
+Fase 7: Controlador para profesores
+- ReservaProfesorController
+- Filtros por usuario autenticado
+- Validación de identidad y control de acceso
+
+Fase 8: Validaciones lógicas
+- No permitir reservas en días no lectivos
+- Impedir duplicidades de franja/fecha/profesor
+
+Fase 9: Aprobación y notificaciones
+- Añadido enum EstadoReserva con conversión string
+- Método PUT para aprobar/rechazar
+- Servicio IEmailService + SendGrid (fase opcional implementada)
+- Notificación por correo según cambio de estado
+
+Fase 10 (actual): Documentación e informes
+- Generación de documentación técnica y funcional
+- Evaluación de arquitectura
